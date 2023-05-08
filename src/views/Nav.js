@@ -1,12 +1,22 @@
 import './Nav.scss';
+import {
+    NavLink
+} from "react-router-dom";
+
+let NavItem = [
+    { name: "Home", url: "/" },
+    { name: "List Anime", url: "/listAnime" },
+    { name: "Count Down", url: "/countDown" }
+]
 
 const Nav = () => {
     return (
         <div className="topnav">
-            <a className="active" href="#home">Home</a>
-            <a href="#news">News</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
+            {NavItem.map((item, index) => {
+                return (
+                    <NavLink to={item.url} key={index} exact >{item.name}</NavLink>
+                )
+            })}
         </div>
     )
 }

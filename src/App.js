@@ -1,35 +1,40 @@
 import logo from './logo.svg';
 import './App.css';
 import Nav from './views/Nav';
+import Home from './views/Home';
+import ListData from './views/ListData';
+import CountDown from './views/CountDown';
 
-import React, { useState } from 'react';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 function App() {
-
-  // state
-  let [name, setName] = useState("Long");
-  let [data, setData] = useState("");
-
-  const change = (event) => {
-    setData(event.target.value);
-  }
-
-  const clicked = (event) => {
-    setName(data);
-  }
+  let mess = "Home";
 
   return (
-    <div className="App">
-      <Nav />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello {name}
-        </p>
-        <input type='text' onChange={(event) => { change(event) }}></input>
-        <button onClick={(event) => { clicked(event) }}>Send data</button>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Nav />
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/listAnime">
+              <ListData />
+            </Route>
+            <Route path="/countDown">
+              <CountDown />
+            </Route>
+          </Switch>
+        </header>
+      </div>
+    </Router>
   );
 }
 
