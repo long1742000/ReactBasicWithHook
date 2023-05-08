@@ -1,5 +1,8 @@
 import './Home.scss';
 import useFecthData from '../customHook/fetchData';
+import {
+    Link
+} from "react-router-dom";
 
 const ListData = () => {
 
@@ -21,7 +24,7 @@ const ListData = () => {
                     data.map(item => {
                         return (
                             <tr key={item.mal_id}>
-                                <td>{item.title}</td>
+                                <td><Link to={`/listAnime/${item.mal_id}`}>{item.title}</Link></td>
                                 <td><img src={item.images.webp.small_image_url} alt={item.title} /></td>
                                 <td>{item.rank}</td>
                                 <td>{item.favorites}</td>

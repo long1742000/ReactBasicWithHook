@@ -4,6 +4,7 @@ import Nav from './views/Nav';
 import Home from './views/Home';
 import ListData from './views/ListData';
 import CountDown from './views/CountDown';
+import DataDetail from './views/DataDetail';
 
 import React from "react";
 import {
@@ -25,8 +26,11 @@ function App() {
             <Route path="/" exact>
               <Home />
             </Route>
-            <Route path="/listAnime">
+            <Route path="/listAnime" exact>
               <ListData />
+            </Route>
+            <Route path="/listAnime/:id">
+              <DataDetail />
             </Route>
             <Route path="/countDown">
               <CountDown />
